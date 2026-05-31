@@ -1,4 +1,6 @@
-const API_BASE = "http://localhost:8000"
+const API_BASE = (
+  import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000"
+).replace(/\/$/, "")
 
 export async function startSwarm(targetUrl: string, agentCount: number) {
   const response = await fetch(`${API_BASE}/swarm/start`, {
